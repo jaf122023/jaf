@@ -20,26 +20,54 @@
 </head>
 <body class="bg-[#fef9f3] text-gray-800">
 
-  <!-- Header -->
-    <header class="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="images/logo.png" alt="Trust Icon" class="w-28 h-28 object-cover rounded-full">
-        <div>
-          <h1 class="text-xl font-bold">JAGRUTH AID FOUNDATION</h1>
-          <p class="text-sm italic text-yellow-300 font-semibold drop-shadow">Where awareness meets with resistance!!</p>
-        </div>
+<!-- Header with Mobile Menu -->
+<header class="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="images/logo.png" alt="Trust Icon" class="w-20 h-20 object-cover rounded-full">
+      <div>
+        <h1 class="text-xl font-bold">JAGRUTH AID FOUNDATION</h1>
+        <p class="text-sm italic text-yellow-300 font-semibold drop-shadow">Where awareness meets with resistance!!</p>
       </div>
-      <nav class="mt-4 md:mt-0 space-x-4 text-white font-semibold">
-        <a href="#about" class="hover:underline">About Us</a>
-        <a href="#trustees" class="hover:underline">Trustees</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-        <a href="#join" class="hover:underline">Join Us</a>
-        <a href="#donate" class="hover:underline">Donate</a>
-        <a href="#gallery" class="hover:underline">Gallery</a>
-      </nav>
     </div>
-  </header>
+    <!-- Mobile menu button -->
+    <div class="md:hidden">
+      <button id="menuToggle" class="focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <!-- Desktop menu -->
+    <nav class="hidden md:flex space-x-4 font-semibold">
+      <a href="#about" class="hover:bg-white hover:text-purple-800 px-3 py-1 rounded transition">About Us</a>
+      <a href="#trustees" class="hover:bg-white hover:text-purple-800 px-3 py-1 rounded transition">Trustees</a>
+      <a href="#contact" class="hover:bg-white hover:text-purple-800 px-3 py-1 rounded transition">Contact</a>
+      <a href="#join" class="hover:bg-white hover:text-purple-800 px-3 py-1 rounded transition">Join Us</a>
+      <a href="#donate" class="hover:bg-white hover:text-purple-800 px-3 py-1 rounded transition">Donate</a>
+      <a href="#gallery" class="hover:bg-white hover:text-purple-800 px-3 py-1 rounded transition">Gallery</a>
+    </nav>
+  </div>
+  <!-- Mobile menu items -->
+  <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2 font-semibold bg-purple-700 text-white">
+    <a href="#about" class="block hover:bg-white hover:text-purple-800 px-3 py-2 rounded transition">About Us</a>
+    <a href="#trustees" class="block hover:bg-white hover:text-purple-800 px-3 py-2 rounded transition">Trustees</a>
+    <a href="#contact" class="block hover:bg-white hover:text-purple-800 px-3 py-2 rounded transition">Contact</a>
+    <a href="#join" class="block hover:bg-white hover:text-purple-800 px-3 py-2 rounded transition">Join Us</a>
+    <a href="#donate" class="block hover:bg-white hover:text-purple-800 px-3 py-2 rounded transition">Donate</a>
+    <a href="#gallery" class="block hover:bg-white hover:text-purple-800 px-3 py-2 rounded transition">Gallery</a>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
 
   <!-- About Us -->
   <section id="about" class="py-12 px-4 md:px-10 bg-[#fff0e5]white">
