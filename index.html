@@ -56,32 +56,74 @@
       <div class="bg-white p-4 rounded shadow text-center">
         <img src="images/kishan.jpg" class="mx-auto w-28 h-28 object-cover rounded-full mb-2" alt="Kishan Jaiswal" />
         <h3 class="font-semibold">Mr. Kishan Jaiswal</h3>
-        <p class="text-sm text-gray-600">Chairman</p>
+        <p class="text-sm text-gray-600">Trustee</p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
         <img src="images/Chetan.jpg" class="mx-auto w-28 h-28 object-cover rounded-full mb-2" alt="Chetan Yadav" />
         <h3 class="font-semibold">Mr. Chetan Yadav</h3>
-        <p class="text-sm text-gray-600">Treasurer</p>
+        <p class="text-sm text-gray-600">Secretary </p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
         <img src="images/Aniket.jpg" class="mx-auto w-28 h-28 object-cover rounded-full mb-2" alt="Aniket Vaity" />
         <h3 class="font-semibold">Mr. Aniket Pravin Vaity</h3>
-        <p class="text-sm text-gray-600">Secretary</p>
+        <p class="text-sm text-gray-600">Manager</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Us -->
-  <section id="contact" class="py-12 px-4 md:px-10 bg-[#f3e5f5]white">
-    <h2 class="text-3xl font-bold mb-4 text-purple-800">Contact Us</h2>
-    <p>
-      <strong>Address:</strong><br>
-      C/o Mr. Kishan Nagendra Jaiswal<br>
-      209, Aman Adarsh Nagar REH B-2,<br>
-      Chandawarkar Lane, Borivali West,<br>
-      Mumbai - 400 092, Maharashtra, India
-    </p>
-  </section>
+<!-- Contact Us -->
+<section id="contact" class="py-12 px-4 md:px-10 bg-[#f3e5f5]white">
+  <h2 class="text-3xl font-bold mb-4 text-purple-800">Contact Us</h2>
+  <p>
+    <strong>Address:</strong><br>
+    C/o Mr. Kishan Nagendra Jaiswal<br>
+    209, Aman Adarsh Nagar REH B-2,<br>
+    Chandawarkar Lane, Borivali West,<br>
+    Mumbai - 400 092, Maharashtra, India
+  </p>
+  <p class="mt-4"><strong>Email:</strong> jaf122023@gmail.com</p>
+  <p><strong>Trust Contact Number:</strong> 9833770218</p>
+
+  <form id="contactForm" class="max-w-md mt-6 space-y-4">
+    <div>
+      <label class="block font-medium mb-1">Your Name:</label>
+      <input type="text" name="name" required class="w-full p-2 border rounded" />
+    </div>
+    <div>
+      <label class="block font-medium mb-1">Your Email:</label>
+      <input type="email" name="email" required class="w-full p-2 border rounded" />
+    </div>
+    <div>
+      <label class="block font-medium mb-1">Message:</label>
+      <textarea name="message" rows="4" required class="w-full p-2 border rounded"></textarea>
+    </div>
+    <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Send</button>
+    <p id="contactMessage" class="text-green-600 font-medium"></p>
+  </form>
+</section>
+
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = this;
+    const formData = new FormData(form);
+
+    emailjs.send("service_5adzblm", "template_7i1lofp", {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message")
+    }).then(() => {
+      document.getElementById("contactMessage").innerText = "Your message has been sent to Trust members!";
+      form.reset();
+    }, (error) => {
+      document.getElementById("contactMessage").innerText = "Submission failed. Try again.";
+      console.error(error);
+    });
+  });
+</script>
+
 
 <section id="join" class="py-12 px-4 md:px-10 bg-[#f1f8e9]gray-100">
   <h2 class="text-3xl font-bold mb-4 text-green-800">Join Us</h2>
@@ -134,7 +176,7 @@
         mobile: formData.get("mobile"),
         qualification: formData.get("qualification")
       }).then(() => {
-        document.getElementById("joinMessage").innerText = "Thank you for joining us!";
+        document.getElementById("joinMessage").innerText = "Your Join request has been sent to Trust members!";
         form.reset();
       }, (error) => {
         document.getElementById("joinMessage").innerText = "Submission failed. Try again.";
