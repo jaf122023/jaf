@@ -5,7 +5,18 @@
       font-size: 16px;
       color: #f0f0f0;
     }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  section:target::before {
+    content: "";
+    display: block;
+    height: 100px; /* height of your sticky header */
+    margin-top: -100px;
+  }
   </style>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -392,3 +403,12 @@
   </footer>
 </body>
 </html>
+
+<script>
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+</script>
